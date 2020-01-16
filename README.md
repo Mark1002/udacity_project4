@@ -8,9 +8,11 @@ This project need aws ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and output data S3 b
  
 ## file definition
 1. etl.py
-python script for all ETL logic, including load raw data from S3, data preprocess, and write back to S3. execute this file in terminal.
+
+python script for all ETL logic, including load raw data from S3, data preprocess, and write back to S3. execute this file     in terminal.
 
 2. dl.cfg
+
 Provide your aws connection infomation yourself.
 
 ## execute command

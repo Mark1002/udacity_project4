@@ -18,6 +18,7 @@ os.environ["output_data"] = config["S3"]["output_bucket"]
 
 
 def create_spark_session():
+    """Init spark instance."""
     spark = SparkSession \
         .builder \
         .config("spark.jars.packages", "org.apache.hadoop:hadoop-aws:2.7.0") \
@@ -26,6 +27,7 @@ def create_spark_session():
 
 
 def process_song_data(spark, input_data, output_data):
+    """Load and preprocess song dataset into song and artist table. Write back to S3."""
     # get filepath to song data file
     song_data = input_data + 'song_data'
     
@@ -68,6 +70,7 @@ def process_song_data(spark, input_data, output_data):
 
 
 def process_log_data(spark, input_data, output_data):
+    """Load and preprocess log dataset into time, user and songplays table. Write back to S3."""
     # get filepath to log data file
     log_data = input_data + 'log_data'
     # define log data schema
@@ -200,6 +203,7 @@ def process_log_data(spark, input_data, output_data):
 
 
 def main():
+    """Main."""
     spark = create_spark_session()
     input_data = "s3a://udacity-dend/"
     output_data = os.environ["output_data"]
